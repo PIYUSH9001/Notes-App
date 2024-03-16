@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+
+<body>
+    <!-- credits: -->
+    <!-- <a target="_blank" href="https://icons8.com/icon/11255/plus">Plus</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+    <!-- https://www.flaticon.com/authors/ayub-irawan -->
+    <!-- https://www.flaticon.com/authors/pixel-perfect -->
+    <!-- https://www.freepik.com/?_gl=1*14jkgjy*test_ga*MTEzMTgzMDM1Ny4xNjk5MjQ5NDMy*test_ga_523JXC6VL7*MTcwOTkyMDIzNi44LjEuMTcwOTkyMDM2Ni4zOC4wLjA.*fp_ga*MTEzMTgzMDM1Ny4xNjk5MjQ5NDMy*fp_ga_1ZY8468CQB*MTcwOTkyMDIzNi44LjEuMTcwOTkyMDM2Ni4zOC4wLjA. -->
+    <div id="container">
+        <div id="notesPane">
+            <div id="new_form">
+                <input type="text" id="new_heading" name="created_heading" placeholder="Enter your heading"
+                    class="newInputs">
+                <textarea name="created_content" id="new_content" cols="30" rows="5" placeholder="Enter your content"
+                    class="newInputs"></textarea>
+                <div id="btnArea">
+                    <button id="cancelBtn">Cancel</button>
+                    <button id="addNoteBtn">OK</button>
+                </div>
+            </div>
+            <% if (userNotes.length !=0) { %>
+                <% userNotes.forEach(element=> { %>
+                    <div class="notes">
+                        <button class="options_btn"><img src="./dotsIcon.png" alt="" class="options_icon"></button>
+                        <ul class="options_pane">
+                            <li class="options" class="editBtn"><img src="./editIcon.png" alt="">
+                                <p>Edit</p>
+                            </li>
+                            <li class="options" class="deleteBtn"><img src="./deleteIcon.png" alt="">
+                                <p>Delete</p>
+                            </li>
+                        </ul>
+                        <h3 class="heading">
+                            <%= element.title %>
+                        </h3>
+                        <p class="content">
+                            <%= element.content %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } %>
+                            <button id="create_btn"><img src="whiteAddIcon.png" alt=""></button>
+        </div>
+    </div>
+    <script src="./home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+        }
+        #container{
+            height:100vh;
+            width:100vw;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: orange;
+            padding:25px;
+        }
+        #form_container{
+            height:450px;
+            width:450px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin:20px;
+            padding:25px;
+            background-color: white;
+            border-radius: 25px;
+        }
+        .inputs{
+            height:30px;
+            width:225px;
+            /* border-radius: 5px; */
+            border:none;
+            border-bottom: 2px solid black;
+            margin:10px;
+            padding:4px;
+            outline: none;
+        }
+        .labels{
+            font-size: 1.1em;
+            padding:7px;
+            margin:5px;
+        }
+        #form_container h3{
+            font-size: 2em;
+        }
+        #submit_btn{
+            height:35px;
+            width:100px;
+            font-size: 1.3em;
+            color:white;
+            background-color: black;
+            outline: none;
+            border:none;
+            border-radius: 5px;
+            margin:7px;
+            padding:3px;
+            cursor: pointer;
+        }
+        #login_pane{
+            height:70px;
+            width:125px;
+            display:flex;
+            flex-direction: column;
+            position:absolute;
+            left:20px;
+            top:10px;
+        }
+        #loginbtn{
+            height:30px;
+            width:100px;
+            background-color: white;
+            color:black;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="login_pane">
+            <h3>Existing user?</h3>
+            <a href="/login"><button id="loginbtn">Log in</button></a>
+        </div>
+        <form action="/signup" id="form_container" method="post">
+            <h3>Hi,Please Sign Up</h3>
+            <label for="email" class="labels">Enter your E-mail</label>
+            <input type="text" name="user_email" id="email" required class="inputs">
+            <label for="password" class="labels">Create your password</label>
+            <input type="password" name="user_password" id="password" class="inputs" required>
+            <label for="confirm_password" class="labels">Confirm your password</label>
+            <input type="password" name="confirm_password" id="confirm_password" class="inputs" required>
+            <% if (PasswordDoesNotMatch) { %>
+                <h3 style="font-size: 1em;color:yellow">Password does not match :(</h3>
+            <% } %>
+            <button id="submit_btn">Login</button>
+        </form>
+    </div>
+
+
+    <script>
+        const submit_btn = document.getElementById("submit_btn");
+        const login_btn = document.getElementById("loginbtn");
+        function makeBtn(btn){
+            btn.addEventListener("mouseover",()=>{
+            btn.style.transition = "all 0.5s";
+            btn.style.backgroundColor = "yellow";
+            btn.style.color = "black";
+            
+        });
+        btn.addEventListener("mouseout",()=>{
+            btn.style.transition = "all 0.5s";
+            btn.style.backgroundColor = "black";
+            btn.style.color = "white";
+        });
+        };
+        makeBtn(submit_btn);
+        makeBtn(login_btn);
+    </script>
+</body>
+</html>
