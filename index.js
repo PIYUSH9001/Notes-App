@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 const path = require('path');
 const user_router = require('./routes/user_route');
 const cookie_parser = require('cookie-parser');
@@ -17,7 +17,7 @@ app.use("/",user_router);
 app.use(express.static('./views'));
 app.set("view engine","ejs");
 
-connect_DB("mongodb://127.0.0.1:27017/usersDB").then(()=>{
+connect_DB(process.env.MONGO_URL).then(()=>{
     console.log("Database Connected!");
 }).catch((error)=>{
     console.log(error);
